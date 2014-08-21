@@ -7,8 +7,16 @@ import zmq
 from http_gate.handler import IndexHandler
 
 
-define('channel', help='ZMQ channel where to send received messages')
-define('socket_type', help='ZMQ socket type - REQ, PULL, PUB, etc')
+define(
+    'channel',
+    default='ipc:///tmp/gate',
+    help='ZMQ channel where to send received messages'
+)
+define(
+    'socket_type',
+    default='REQ',
+    help='ZMQ socket type - REQ, PULL, PUB, etc'
+)
 define('port', default=8888)
 define('host', default='')
 

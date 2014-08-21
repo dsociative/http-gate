@@ -39,7 +39,7 @@ class RequestTest(AsyncHTTPTestCase):
         assert {'you': {'request': self.command}} == json.loads(response.body)
         self.stop()
 
-    def test_hi_command(self):
+    def test_request(self):
         self.http_client.fetch(
             self.get_url('/'),
             self.handle_fetch,
