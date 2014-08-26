@@ -34,12 +34,16 @@ def create_application(channel, socket_type):
     )
 
 
+def start(socket_type, channel, host, port):
+    application = create_application(channel, socket_type)
+    application.listen(port, address=host)
+    IOLoop.instance().start()
+
+
 def main():
     options.parse_command_line()
 
-    application = create_application(options.channel, options.socket_type)
-    application.listen(options.port, address=options.host)
-    IOLoop.instance().start()
+    start(options.socket_type, options.channel, options.host, options.port)
 
 
 if __name__ == "__main__":
